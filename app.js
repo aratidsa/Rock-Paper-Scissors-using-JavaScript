@@ -1,154 +1,164 @@
-/* ---------------------- pick id and class from html ------------------- */
 
-const choices = document.querySelectorAll('.imgBtn')
-const score = document.querySelector('.score')
-const modal = document.querySelector('.modal-container')
-const userSelect = document.querySelector('#userSelect')
-const computerSelect = document.querySelector('#computerSelect')
-const resultDisplay = document.querySelector('#result')
-const infoDisplay = document.getElementById('info')
 
-/* ---------------------- create a dictionary for storing user and computer scores, initialise to 0 ------------------- */
-
-const scoreboard = {
-    user:0,
-    computer:0,
+body{
+    background-color: burlywood;
+    margin:20px;
+    padding:0;   
+    color: rgb(39, 23, 2);
+    font-family: 'Alkatra', cursive;
+    text-align: center;
+   
 }
 
-let userChoice
-let computerChoice
+/* ---------------------- Score Grid ---------------------- */
 
-/* ---------------------- grab the choices using foreach loop  ------------------- */
-
-choices.forEach(choice => choice.addEventListener('click',play))
-
-function play(e)
-{   /* ---------------------- get id for user choice ie rock,paper or scissor  ------------------- */
-    userChoice = e.target.id
-
-    /* ---------------------- display user choice on the modal  ------------------- */
-    userSelect.innerHTML = `
-               <img src="images/${userChoice}.jpg">  `
-    
-     /* ---------------------- call function to generate computer choice  ------------------- */
-    generateComputerChoice()
-
-    /* ---------------------- call function to get the winner  ------------------- */
-    getWinner(userChoice,computerChoice)
-
-    /* ---------------------- display the modal  ------------------- */
-    modal.style.display = 'block'
+.score
+{
+    display:grid;
+    grid-template-columns: auto auto;
+    background-color: rgb(236, 206, 166);;
+    font-size: 30px;
+    font-weight: bold;
 }
 
-function generateComputerChoice()
-{   /* ---------------------- get the random number between 0 to 2  ------------------- */
-    const randomNumber = Math.floor(Math.random() * 3)
-    
-    /* ----------- assign 0 - rock , 1 - paper, 2 - scissor as computer choices and display on the modal  ------------------- */
-    if(randomNumber === 0)
-    {
-        computerChoice = 'rock'
-        computerSelect.innerHTML = `
-           <img src="images/${computerChoice}.jpg">  `
-    }
-    else if(randomNumber === 1)
-    {
-        computerChoice = 'paper'
-        computerSelect.innerHTML = `
-          <img src="images/${computerChoice}.jpg">  `        
-    }
-    else
-    {
-        computerChoice = 'scissor'
-        computerSelect.innerHTML = `
-           <img src="images/${computerChoice}.jpg">  `        
-    }
+/* ---------------------- Selection Buttons ---------------------- */
+
+.imgBtn
+{
+    width:200px;
+    height:200px;
+    border:10px solid  rgb(39, 23, 2);
+    border-radius: 50%;
+    margin-left:40px;
+    cursor: pointer;
+    background-color: white;
+    margin-top:50px;
 }
 
-function getWinner(u,c)
-{   /* ---------------------- if user choice and computer choice are same then its a draw  ------------------- */
-    if(u === c)
-    {
-        infoDisplay.innerHTML=""
-        resultDisplay.innerHTML="It's a Draw"  
-        modal.style.display = 'block'
-    }
-     /* ---------------------- if user choice is rock and computer choice is paper then computer wins and vice versa  ------------------- */
-    /* ---------------------- if computer wins increment computer score by 1 else increment user score by 1  ------------------- */
-    else if( u === 'rock')
-    {
-        if( c === 'paper')
-        {
-            infoDisplay.innerHTML="Paper grabs rock"
-            resultDisplay.innerHTML="Computer Won"  
-            scoreboard.computer++
-            modal.style.display = 'block'
-        }
-        else
-        {   infoDisplay.innerHTML="Paper grabs rock"
-            resultDisplay.innerHTML="You Won"  
-            scoreboard.user++
-            modal.style.display = 'block'
-        }
-    }
-      /* ---------------------- if user choice is paper and computer choice is scissor then computer wins and vice versa ------------------- */
-        /* ---------------------- if computer wins increment computer score by 1 else increment user score by 1  ------------------- */
-    else if( u === 'paper')
-    {
-        if( c === 'scissor')
-        {
-            infoDisplay.innerHTML="Scissor cuts paper"
-            resultDisplay.innerHTML="Computer Won"  
-            scoreboard.computer++
-            modal.style.display = 'block'        
-        }
-        else
-        {
-            infoDisplay.innerHTML="Scissor cuts paper"
-            resultDisplay.innerHTML="You Won"  
-            scoreboard.user++
-            modal.style.display = 'block'  
-        }
-    }
-    /* ---------------------- if user choice is scissor and computer choice is rock then computer wins and vice versa ------------------- */
-        /* ---------------------- if computer wins increment computer score by 1 else increment user score by 1  ------------------- */
-    else if( u === 'scissor')
-    {
-        if( c === 'rock')
-        {
-            infoDisplay.innerHTML="Scissor can not cut rock"
-            resultDisplay.innerHTML="Computer Won"  
-            scoreboard.computer++
-            modal.style.display = 'block'        
-        }
-        else
-        {
-            infoDisplay.innerHTML="Scissor can not cut rock"
-            resultDisplay.innerHTML="You Won"  
-            scoreboard.user++
-            modal.style.display = 'block'  
-        }
-    }
-    /* ------- display the computer and user score on the grid ------------------- */
+/* ---------------------- Selection Image ---------------------- */
 
-    score.innerHTML = `
-            <p>User: ${scoreboard.user}</p>
-            <p>Computer: ${scoreboard.computer}</p>`
+img
+{
+    width:100px;
+    height:100px;
 }
 
-    /* ---------------------- if you  want to play again the same game with carry forwarding the score  ------------------- */
+/* ---------------------- Button Hover Shadow ---------------------- */
 
-function replay()
-{   modal.style.display = 'none' 
+button:hover{
+    box-shadow: 2px 2px 2px 2px rgb(37, 36, 36);
 }
 
-  /* ---------------------- if you  want to start a new game  ------------------- */
-function startGame()
-{   modal.style.display = 'none' 
-    scoreboard.user = 0
-    scoreboard.computer = 0
-    score.innerHTML = `
-            <p>User: 0 </p>
-            <p>Computer: 0 </p>`
+/* ---------------------- Heading Position ---------------------- */
+
+.heading h1
+{
+   margin-top:40px
 }
+
+/* ---------------------- Restart Button ---------------------- */
+
+#restart
+{
+    width:200px;
+    height:70px;
+    font-size: 25px;
+    color:white;
+    border-radius: 20px;
+    margin-top:80px;
+    background-color: rgb(39, 23, 2);
+    border:1px solid  rgb(39, 23, 2);
+    font-family: 'Alkatra', cursive;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* ---------------------- Modal Design ---------------------- */
+
+.modal-container
+{
+  position:relative;
+  display: none;
+}
+
+.modal
+{
+    background-color: white;
+    width:350px;
+    height:380px;
+    border-radius:20px;
+    color:rgb(39, 23, 2);
+    font-family: 'Alkatra', cursive;
+    font-size: 20px;
+    display: grid;
+    grid-template-rows: auto auto auto;
+    padding-top:10px;
+    margin-left:580px;
+    margin-top:-400px;
+    position: absolute;
+    font-weight: bold;
+    border:10px solid rgb(39, 23, 2);
+}
+/* ---------------------- Info Display ---------------------- */
+
+#info
+{
+    color:red;
+}
+
+/* ---------------------- Result Display ---------------------- */
+
+#result
+{
+    color:rgb(121, 90, 10);
+    font-weight: bolder;
+    font-size: 30px;
+}
+/* ---------------------- Exit Button ---------------------- */
+.newGame
+{
+    width:70px;
+    height:40px;
+    background-color:rgb(39, 23, 2);
+    color:white;
+    font-size: 20px;
+    font-family: 'Alkatra', cursive;
+    border-radius: 10px;
+    border:1px solid rgb(39, 23, 2);
+    cursor: pointer;
+}
+
+/* ---------------------- Play Again Button ---------------------- */
+
+.playAgain
+{
+    width:150px;
+    height:40px;
+    background-color:rgb(39, 23, 2);
+    color:white;
+    font-size: 20px;
+    font-family: 'Alkatra', cursive;
+    border-radius: 10px;
+    border:1px solid rgb(39, 23, 2);
+    cursor: pointer;
+}
+
+/* ---------------------- Button Hover Shadow ---------------------- */
+
+.newGame:hover{
+    box-shadow: 2px 2px 2px 2px rgb(37, 36, 36);
+}
+
+.playAgain:hover{
+    box-shadow: 2px 2px 2px 2px rgb(37, 36, 36);
+}
+
+
+
+
+
+
+
+
+
 
