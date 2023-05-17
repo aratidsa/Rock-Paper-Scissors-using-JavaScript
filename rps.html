@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
+       <!------------------------ Font Style -------------------------------- -->
+    <link href="https://fonts.googleapis.com/css2?family=Alkatra:wght@500&family=Dancing+Script&family=Roboto+Mono:ital,wght@1,300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!------------------------ Heading -------------------------------- -->
+
+    <h1>Rock - Paper - Scissors </h1>
+
+     <!------------------------ Score Board Grid -------------------------------- -->
+
+    <div class="score">
+        <p>User : 0 </p>
+        <p>Computer : 0 </p>
+    </div>
+
+     <!------------------------ Selection -------------------------------- -->
+
+    <div class="heading">
+        <h1>Make your Choice</h1>
+    </div>
+    <div class="btn">
+        <button class="imgBtn" type="submit" id="rock"><img id="rock" src="images/rock.jpg"></button>
+        <button class="imgBtn" type="submit" id="paper"><img id="paper" src="images/paper.jpg"></button>       
+        <button class="imgBtn" type="submit" id="scissor"><img id="scissor" src="images/scissor.jpg"></button>
+    </div>
+
+     <!------------------------ Restart Button -------------------------------- -->
+
+    <div>
+        <button type="submit" onclick="startGame()" id="restart">Restart Game</button>
+    </div>
+
+     <!------------------------ Modal -------------------------------- -->
+
+    <div class="modal-container"> 
+        <div class="modal">
+            <div>You Picked : <span id="userSelect"></span> </div>  
+            <div>Computer Picked : <span id="computerSelect"></span> </div> 
+            <div>Result : <span id="result"></span></div>
+            <div><span id="info"></span></div>
+            <div class="modal-button">
+                <button type="submit" onclick="startGame()" class="newGame">Exit</button>
+                <button type="submit" class="playAgain" onclick="replay()">Play Again</button>
+            </div>
+        </div>
+    </div>
+    
+       <!------------------------ JavaScript -------------------------------- -->
+
+    <script src="app.js"></script>
+</body>
+</html>
