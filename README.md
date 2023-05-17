@@ -2,6 +2,8 @@
 
 **Rock Paper Scissors game where you play against the Computer.**
 
+**I have built Rock Paper Scissors game in JavaScript,HTML and CSS**
+
 **How to play?**
 
 1.	Player starts the game by selecting either Rock, Paper or Scissors
