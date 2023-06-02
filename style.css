@@ -2,7 +2,7 @@
 
 body{
     background-color: burlywood;
-    margin:50px;
+    margin:20px;
     padding:0;   
     color: rgb(39, 23, 2);
     font-family: 'Alkatra', cursive;
@@ -53,7 +53,7 @@ button:hover{
 
 .heading h1
 {
-   margin-top:60px
+   margin-top:40px
 }
 
 /* ---------------------- Restart Button ---------------------- */
@@ -93,8 +93,8 @@ button:hover{
     display: grid;
     grid-template-rows: auto auto auto;
     padding-top:10px;
-    margin-left:650px;
-    margin-top:-400px;
+    margin-left:580px;
+    margin-top:-450px;
     position: absolute;
     font-weight: bold;
     border:10px solid rgb(39, 23, 2);
@@ -152,9 +152,6 @@ button:hover{
 .playAgain:hover{
     box-shadow: 2px 2px 2px 2px rgb(37, 36, 36);
 }
-
-
-
 
 
 
