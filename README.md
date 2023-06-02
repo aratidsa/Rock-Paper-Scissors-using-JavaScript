@@ -24,6 +24,9 @@
 
 7.	You can also restart the game 
 
+**Demo of the game**
+- [screen-capture (3).webm](https://github.com/aratidsa/Rock-Paper-Scissors-using-JavaScript/assets/128802362/9587b8cc-f4d8-45de-9ac3-cb3c0fd3b381)
+
 **Screen shots of the game**
 ![Screenshot 2023-06-02 130441](https://github.com/aratidsa/Rock-Paper-Scissors-using-JavaScript/assets/128802362/597e72e1-9b2e-42dc-95a5-f52f36eeb065)
 ![Screenshot 2023-06-02 130503](https://github.com/aratidsa/Rock-Paper-Scissors-using-JavaScript/assets/128802362/0a4315eb-fb55-49b2-b336-6b9d41d04c3c)
@@ -31,6 +34,5 @@
 ![Screenshot 2023-06-02 130548](https://github.com/aratidsa/Rock-Paper-Scissors-using-JavaScript/assets/128802362/b8b16db8-ad72-4b4a-b8d1-ff67c83ee12d)
 
 
-**Demo of the game**
 
 
