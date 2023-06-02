@@ -25,7 +25,7 @@ choices.forEach(choice => choice.addEventListener('click',play))
 function play(e)
 {   /* ---------------------- get id for user choice ie rock,paper or scissor  ------------------- */
     userChoice = e.target.id
-
+    
     /* ---------------------- display user choice on the modal  ------------------- */
     userSelect.innerHTML = `
                <img src="images/${userChoice}.jpg">  `
@@ -73,67 +73,59 @@ function getWinner(u,c)
         resultDisplay.innerHTML="It's a Draw"  
         modal.style.display = 'block'
     }
-     /* ---------------------- if user choice is rock and computer choice is paper then computer wins and vice versa  ------------------- */
+
+/* ---------------------- if user choice is rock and computer choice is paper then computer wins and vice versa  --------------- */
+ /* ---------------------- if user choice is paper and computer choice is scissor then computer wins and vice versa -------- */
+/* ---------------------- if user choice is scissor and computer choice is rock then computer wins and vice versa ------------------- */
     /* ---------------------- if computer wins increment computer score by 1 else increment user score by 1  ------------------- */
-    else if( u === 'rock')
-    {
-        if( c === 'paper')
-        {
+    else if( u === 'rock' && c === 'paper')
+        {   
             infoDisplay.innerHTML="Paper grabs rock"
             resultDisplay.innerHTML="Computer Won"  
             scoreboard.computer++
             modal.style.display = 'block'
         }
-        else
+    else if(u === 'paper' && c === 'scissor')
+        {
+            infoDisplay.innerHTML="Scissor cuts paper"
+            resultDisplay.innerHTML="Computer Won"  
+            scoreboard.computer++
+            modal.style.display = 'block'        
+        }
+    else if(u === 'scissor' && c === 'rock')
+        {
+            infoDisplay.innerHTML="Scissor can not cut rock"
+            resultDisplay.innerHTML="Computer Won"  
+            scoreboard.computer++
+            modal.style.display = 'block'        
+        }
+    else if(c === 'rock' && u === 'paper')    
         {   infoDisplay.innerHTML="Paper grabs rock"
             resultDisplay.innerHTML="You Won"  
             scoreboard.user++
             modal.style.display = 'block'
         }
-    }
-      /* ---------------------- if user choice is paper and computer choice is scissor then computer wins and vice versa ------------------- */
-        /* ---------------------- if computer wins increment computer score by 1 else increment user score by 1  ------------------- */
-    else if( u === 'paper')
-    {
-        if( c === 'scissor')
-        {
-            infoDisplay.innerHTML="Scissor cuts paper"
-            resultDisplay.innerHTML="Computer Won"  
-            scoreboard.computer++
-            modal.style.display = 'block'        
-        }
-        else
+    else if(c === 'paper' && u === 'scissor')
         {
             infoDisplay.innerHTML="Scissor cuts paper"
             resultDisplay.innerHTML="You Won"  
             scoreboard.user++
             modal.style.display = 'block'  
-        }
-    }
-    /* ---------------------- if user choice is scissor and computer choice is rock then computer wins and vice versa ------------------- */
-        /* ---------------------- if computer wins increment computer score by 1 else increment user score by 1  ------------------- */
-    else if( u === 'scissor')
-    {
-        if( c === 'rock')
-        {
-            infoDisplay.innerHTML="Scissor can not cut rock"
-            resultDisplay.innerHTML="Computer Won"  
-            scoreboard.computer++
-            modal.style.display = 'block'        
-        }
-        else
+        }    
+    else if(c === 'scissor' && u === 'rock')
         {
             infoDisplay.innerHTML="Scissor can not cut rock"
             resultDisplay.innerHTML="You Won"  
             scoreboard.user++
-            modal.style.display = 'block'  
+            modal.style.display = 'block'    
         }
-    }
-    /* ------- display the computer and user score on the grid ------------------- */
 
+        /* ------- display the computer and user score on the grid ------------------- */    
     score.innerHTML = `
-            <p>User: ${scoreboard.user}</p>
-            <p>Computer: ${scoreboard.computer}</p>`
+        <p>User: ${scoreboard.user}</p>
+        <p>Computer: ${scoreboard.computer}</p>`
+
+        
 }
 
     /* ---------------------- if you  want to play again the same game with carry forwarding the score  ------------------- */
